@@ -12,7 +12,7 @@ resource "aws_instance" "web" {
 resource "aws_security_group" "allow_tls_mysg" {
   name        = "allow_tls_mysg"
   description = "Allow TLS inbound traffic rule"
-  vpc_id      = aws_vpc.main.id
+  #vpc_id      = aws_vpc.main.id
 
   ingress {
     description      = "inbound rule"
