@@ -1,7 +1,7 @@
 resource "aws_instance" "web" {
   ami           = "ami-03265a0778a880afb" #devops-practice
   instance_type = "t2.micro"
-  #vpc_security_group_ids = [aws_security_group.allow_tls_mysg]
+  vpc_security_group_ids = [aws_security_group.allow_tls_mysg.id]
   
 
   tags = {
@@ -12,7 +12,7 @@ resource "aws_instance" "web" {
 resource "aws_security_group" "allow_tls_mysg" {
   name        = "allow_tls_mysg"
   description = "Allow TLS inbound traffic rule"
-  vpc_id      = aws_vpc.main.id
+  #vpc_id      = aws_vpc.main.id
 
   ingress {
     description      = "inbound rule"
