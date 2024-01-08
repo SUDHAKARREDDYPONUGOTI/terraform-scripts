@@ -19,7 +19,6 @@ variable "instance_type" {
 variable "InboundDescription" {
     type = string
     default = "MyInbound"
-  
 }
 
 variable "From_Port" {
