@@ -30,3 +30,9 @@ variable "SG-tagname" {
     default = "MySG-1"
   
 }
+
+variable "SecurityGroup" {
+    type = string
+    default = "MySecurityGroup"
+  
+}
