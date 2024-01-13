@@ -10,29 +10,29 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_security_group" "allow_tls_mysg" {
-  name        = "allow_tls_mysg"
+  name        = var.SecurityGroup
   description = "Allow TLS inbound traffic rule"
   #vpc_id      = aws_vpc.main.id
 
   ingress {
     description      = "inbound rule"
-    from_port        = 0
-    to_port          = 0
+    from_port        = var.From_Port
+    to_port          = var.To_Port
     protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = var.CIDR_Block
     #ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
   }
 
   egress {
-    from_port        = 0
-    to_port          = 0
+    from_port        = var.From_Port
+    to_port          = var.To_Port
     protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = var.CIDR_Block
     #ipv6_cidr_blocks = ["::/0"]
   }
 
   tags = {
-    Name = "allow_tls"
+    Name = "roboshop_aws"
   }
 }
 
